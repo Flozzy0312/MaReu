@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@android:style/Widget.Holo.Light"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="0dp"
+    android:paddingEnd="0dp"
+    app:layout_constraintEnd_toStartOf="@+id/guideline_add_meeting"
+    app:layout_constraintStart_toStartOf="@+id/guideline_add_meeting">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_add_meeting"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_layout_add_meeting_subject"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="wrap_content"
+                app:counterEnabled="true"
+                app:counterMaxLength="30"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                    android:id="@+id/edit_text_add_meeting_subject"
+                    style="@android:style/Widget.Material.EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:autofillHints=""
+                    android:ems="10"
+                    android:hint="@string/add_meeting_subject"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:maxLength="30"
+                    android:textSize="@dimen/text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/add_meeting_subject" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    tools:layout_editor_absoluteX="46dp"
+                    tools:layout_editor_absoluteY="87dp">
+
+                    <TextView
+                        android:id="@+id/text_add_meeting_datepicker"
+                        style="@android:style/Widget.Holo.Light.Button"
+                        android:layout_width="164dp"
+                        android:layout_height="wrap_content"
+                        android:calendarViewShown="false"
+                        android:paddingLeft="10dp"
+                        android:drawableStart="@drawable/ic_baseline_date_range_24"
+                        android:drawablePadding="@dimen/margin_normal"
+                        android:paddingEnd="10dp"
+                        android:text="@string/add_meeting_datepicker"
+                        android:textSize="@dimen/text" />
+
+                    <TextView
+                        android:id="@+id/text_add_meeting_timepicker"
+                        style="@android:style/Widget.Holo.Light.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:calendarViewShown="false"
+                        android:paddingLeft="10dp"
+                        android:drawableStart="@drawable/ic_baseline_access_time_24"
+                        android:drawablePadding="@dimen/margin_normal"
+                        android:paddingStart="10dp"
+                        android:text="@string/add_meeting_timepicker"
+                        android:textSize="@dimen/text" />
+                </LinearLayout>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/text_add_meeting_duration"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/add_meeting_duration"
+                android:textColor="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_input_layout_add_meeting_subject"
+                app:layout_constraintVertical_bias="0.121"
+                tools:ignore="NotSibling" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_add_meeting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <NumberPicker
+                android:id="@+id/numberpicker_add_meeting_duration_hours_"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/picker"
+                android:layout_marginEnd="@dimen/margin_normal"
+                android:inputType="datetime"
+                android:timePickerMode="spinner"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_add_meeting"
+                app:layout_constraintTop_toBottomOf="@+id/text_add_meeting_duration" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_half"
+                android:layout_marginTop="40dp"
+                android:text="H"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toEndOf="@+id/numberpicker_add_meeting_duration_hours_"
+                app:layout_constraintTop_toBottomOf="@+id/text_add_meeting_duration"
+                tools:ignore="HardcodedText" />
+
+            <NumberPicker
+                android:id="@+id/numberpicker_add_meeting_duration_minutes_"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/picker"
+                android:layout_marginStart="@dimen/margin_normal"
+                android:layout_marginEnd="@dimen/large_margin"
+                android:inputType="datetime"
+                android:timePickerMode="spinner"
+                app:layout_constraintStart_toEndOf="@+id/guideline_add_meeting"
+                app:layout_constraintTop_toBottomOf="@+id/text_add_meeting_duration" />
+
+            <Spinner
+                android:id="@+id/spinner_add_meeting_room"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_double"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/numberpicker_add_meeting_duration_minutes_"
+                tools:text="@string/add_meeting_room" />
+
+            <MultiAutoCompleteTextView
+                android:id="@+id/autocomplete_text_add_meeting_participant"
+                style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_double"
+                android:layout_marginTop="@dimen/margin_double"
+                android:layout_marginEnd="@dimen/margin_double"
+                android:hint="@string/add_meeting_participant"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_add_meeting_room"
+                tools:text="@string/add_meeting_participant" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

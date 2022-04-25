@@ -1,0 +1,14 @@
+<resources>
+    <dimen name="start_appli_text">50sp</dimen>
+    <dimen name="start_image_size">150dp</dimen>
+    <dimen name="margin_normal">10dp</dimen>
+    <dimen name="size_image_view">50dp</dimen>
+    <dimen name="padding_normal">10dp</dimen>
+    <dimen name="margin_double">20dp</dimen>
+    <dimen name="large_margin">100dp</dimen>
+    <dimen name="margin_half">5dp</dimen>
+    <dimen name="text">15sp</dimen>
+    <dimen name="picker">100dp</dimen>
+    <dimen name="button_width">350dp</dimen>
+    <dimen name="horizontal_margin">10dp</dimen>
+</resources>

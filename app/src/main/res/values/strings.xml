@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Ma Réu</string>
+    <string name="start_appli_screen_content_description">Ma Réu</string>
+    <!--Textes des filtres -->
+    <string name="menu_filter_date">Filtrer par date</string>
+    <string name="menu_filter_room">Filtrer par salle de réunion</string>
+    <string name="filter_reset_text">Réinitialiser le filtre</string>
+    <string name="filter_rooms_text">Sélectionnez les salles de réunion à afficher</string>
+    <string name="filter_ok_text">Voir</string>
+    <string name="toast_room_not_selected">Sélectionnez au moins une salle de réunion!</string>
+    <string name="fab_new_meeting">Add a new meeting</string>
+    <!--Main Meeting Layout-->
+    <string name="text_first_line">Subject - StartDate - Start Time - Room</string>
+    <string name="text_second_line">Liste de Participants</string>
+    <string name="item_meeting_delete_description">Supprimer la réunion</string>
+    <string name="room_image_list_meetings_content_description">"Image salle de réunion""</string>
+    <!--Add Meeting Layout-->
+    <string name="add_meeting_subject">Thème de la réunion (30 caractères max)</string>
+    <string name="menu_creation_meeting">Créer la réunion</string>
+    <string name="add_meeting_participant">Saisir les participants</string>
+    <string name="add_meeting_datepicker">Saisir la date</string>
+    <string name="add_meeting_timepicker">Saisir l\'heure</string>
+    <string name="add_meeting_duration">Saisir la durée</string>
+    <string name="add_meeting_room">Sélectionner la salle de la réunion</string>
+    <!--Add Meeting Layout - Creation action -->
+    <string name="toast_duration_empty">Renseignez la durée de la réunion!</string>
+    <string name="toast_subject_empty">Saisir un objet à la réunion !</string>
+    <string name="toast_room_empty">Sélectionnez la salle de réunion!</string>
+    <string name ="toast_room_not_available">Salle de réunion non disponible!</string>
+    <string name ="toast_create_Meeting">reunion enregistrée!</string>
+
+    <string name="toast_participant_empty">Sélectionnez au moins 1 participants!</string>
+
+</resources>

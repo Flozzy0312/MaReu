@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#D380F6</color>
+    <color name="colorPrimaryDark">#0068DD</color>
+    <color name="colorAccent">#CE0A24</color>
+    <color name="colorTextView">#000000</color>
+    <color name="red">#FFF30707</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name = "addMeeting">#FF5722</color>
+    <color name="toast_add_meeting_color">#CE0A24</color>
+
+</resources>
