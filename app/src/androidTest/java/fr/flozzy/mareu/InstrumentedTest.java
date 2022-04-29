@@ -4,6 +4,7 @@ import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.doubleClick;
+import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.RootMatchers.withDecorView;
@@ -19,7 +20,6 @@ import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
 import static fr.flozzy.mareu.utils.RecyclerViewItemCountAssertion.withItemCount;
 
-import android.support.test.rule.ActivityTestRule;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 
@@ -30,6 +30,7 @@ import androidx.test.espresso.action.Tap;
 import androidx.test.espresso.contrib.PickerActions;
 import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.rule.ActivityTestRule;
 
 import org.hamcrest.Matchers;
 import org.junit.Before;
@@ -67,14 +68,14 @@ public class InstrumentedTest {
     }
 
     @Test
-    public void addMeetingWithSuccess() {
+    public void addMeetingWithSuccess() throws Exception {
         onView(withId(R.id.list_recycler_view)).check(withItemCount(INITIAL_LIST_SIZE));
         onView(withId(R.id.button_add_meeting))
                 .perform(click());
         onView(withId(R.id.edit_text_add_meeting_subject))
                 .perform(click());
         onView(withId(R.id.edit_text_add_meeting_subject))
-                .perform(typeText("Nouvelle réunion"));
+                .perform(replaceText("Nouvelle réunion"));
         onView(withId(R.id.text_add_meeting_datepicker))
                 .perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(2022, 6, 13));
@@ -91,11 +92,9 @@ public class InstrumentedTest {
         onView(withId(R.id.spinner_add_meeting_room))
                 .perform(click());
         onData(anything()).atPosition(1).perform(click());
-
         onView(withId(R.id.autocomplete_text_add_meeting_participant))
-                .perform(typeText("f"));
+                .perform(typeText("j"));
         onData(anything()).atPosition(1).perform(click());
-
         onView(withId(R.id.menu_overflow_button_create_meeting))
                 .perform(click());
         onView(withText(R.string.menu_creation_meeting))
@@ -106,10 +105,8 @@ public class InstrumentedTest {
     public void addMeetingWithMissingSubjectThrowsToast() {
         onView(withId(R.id.button_add_meeting))
                 .perform(click());
-
         onView(withId(R.id.menu_overflow_button_create_meeting))
                 .perform(doubleClick());
-
         onView(withText(R.string.toast_subject_empty)).inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
     }
 
@@ -127,9 +124,9 @@ public class InstrumentedTest {
                 .perform(click());
         onView(withText(R.string.menu_filter_date))
                 .perform(click());
-        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(2023, 03, 13));
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(2022, 3, 13));
         onView(withText(R.string.filter_ok_text)).perform(click());
-        onView(withId(R.id.list_recycler_view)).check(withItemCount(1));
+        onView(withId(R.id.list_recycler_view)).check(withItemCount(0));
         onView(withId(R.id.menu_overflow_button_create_meeting))
                 .perform(click());
         onView(withText(R.string.menu_filter_date))
