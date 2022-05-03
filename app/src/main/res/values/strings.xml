@@ -24,7 +24,7 @@
     <string name="add_meeting_room">Sélectionner la salle de la réunion</string>
     <!--Add Meeting Layout - Creation action -->
     <string name="toast_duration_empty">Renseignez la durée de la réunion!</string>
-    <string name="toast_subject_empty">Saisir un objet à la réunion !</string>
+    <string name="toast_subject_empty">Saisir un objet à la réunion!</string>
     <string name="toast_room_empty">Sélectionnez la salle de réunion!</string>
     <string name ="toast_room_not_available">Salle de réunion non disponible!</string>
     <string name ="toast_create_Meeting">reunion enregistrée!</string>

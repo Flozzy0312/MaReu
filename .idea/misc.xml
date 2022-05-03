@@ -22,6 +22,7 @@
         <entry key="app/src/main/res/layout/activity_add_meeting.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.234375" />
         <entry key="app/src/main/res/layout/create_meeting.xml" value="0.234375" />
+        <entry key="app/src/main/res/layout/error_toast.xml" value="1.2142857142857142" />
         <entry key="app/src/main/res/layout/fragment_item_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/menu_filtre.xml" value="0.234375" />
         <entry key="app/src/main/res/menu/create_meeting.xml" value="0.1828125" />

@@ -2,9 +2,10 @@ package fr.flozzy.mareu.UI;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,7 +19,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -209,8 +209,6 @@ public class AddMeetingActivity extends AppCompatActivity {
                     mEndDate,
                     lParticipantId );
             finMeeting( mMeeting );
-
-            // appeler service add meeting
         }
     }
 
@@ -262,13 +260,13 @@ public class AddMeetingActivity extends AppCompatActivity {
     }
 
     private void toastCancelCreation(int intString) {
-        Toast toastCreateMeeting = Toast.makeText( getApplicationContext(), intString, Toast.LENGTH_LONG );
-        toastCreateMeeting.setGravity( Gravity.CENTER, 0, 0 );
-        View toastViewCreateMeeting = toastCreateMeeting.getView();
-        TextView toastTextCreateMeeting = toastViewCreateMeeting.findViewById( android.R.id.message );
-        toastTextCreateMeeting.setTextColor( ContextCompat.getColor( getApplicationContext(), R.color.addMeeting ) );
-
-        toastCreateMeeting.show();
+        Toast errorToast = new Toast(this);
+        errorToast.setDuration(Toast.LENGTH_LONG);
+        LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.error_toast, null);
+        ((TextView)view).setText(intString);
+        errorToast.setView(view);
+        errorToast.show();
     }
 
     private Date getStartMeetingDateTimeFromSelection() {
