@@ -56,8 +56,8 @@ public class MaReuUnitTest {
 
         Calendar mCalendarDeb = Calendar.getInstance();
         Calendar mCalendarFin = Calendar.getInstance();
-        mCalendarDeb.set( 2021, 02, 12, 10, 00 );
-        mCalendarFin.set( 2021, 02, 12, 11, 00 );
+        mCalendarDeb.set( 2022, 05, 12, 17, 00 );
+        mCalendarFin.set( 2022, 05, 12, 18, 00 );
         Date dateDebMeeting = new Date( mCalendarDeb.getTimeInMillis() );
         Date dateFinMeeting = new Date( mCalendarFin.getTimeInMillis() );
         Meeting aMeeting = new Meeting( System.currentTimeMillis(),

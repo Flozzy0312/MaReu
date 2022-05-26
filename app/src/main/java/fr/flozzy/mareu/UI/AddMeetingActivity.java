@@ -199,7 +199,7 @@ public class AddMeetingActivity extends AppCompatActivity {
             toastCancelCreation( R.string.toast_subject_empty );
         } else if (durationHours.getValue() == 0 && durationMinutes.getValue() == 0) {
             toastCancelCreation( R.string.toast_duration_empty );
-        } else if (topVide) {
+        } else if (topVide = false) {
             toastCancelCreation( R.string.toast_room_empty );
         } else if (!maReuApiService.checkRoomAvailability(idRoom, mStartDate, mEndDate)) {
             toastCancelCreation( R.string.toast_room_not_available );

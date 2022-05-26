@@ -132,12 +132,12 @@ public abstract class MaReuDummyApiGenerator {
                 Arrays.asList( 5,6,7,8,10) );
         lMeetings.add( aMeeting );
 
-        mCalendarDeb.set( 2022, 05, 12, 10, 00 );
-        mCalendarFin.set( 2022, 05, 12, 11, 00 );
+        mCalendarDeb.set( 2022, 05, 12, 14, 00 );
+        mCalendarFin.set( 2022, 05, 12, 15, 00 );
         dateDebMeeting = new java.util.Date( mCalendarDeb.getTimeInMillis() );
         dateFinMeeting = new java.util.Date( mCalendarFin.getTimeInMillis() );
         aMeeting = new Meeting( System.currentTimeMillis(),
-                7,
+                1,
                 "Objet Reunion 8",
                 dateDebMeeting,
                 dateFinMeeting,
