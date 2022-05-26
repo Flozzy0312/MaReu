@@ -9,7 +9,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -51,14 +50,14 @@ public class MaReuUnitTest {
      * Test thats the add meeting function creates a new meeting to the list with a empty list
      */
     @Test
-    public void addListWithSuccess()  {
+    public void addMeetingWithSuccess()  {
         List<Meeting> lMeetings =  maReuApiService.getMeetings();
         int debSize = lMeetings.size();
 
         Calendar mCalendarDeb = Calendar.getInstance();
         Calendar mCalendarFin = Calendar.getInstance();
         mCalendarDeb.set( 2021, 02, 12, 10, 00 );
-        mCalendarDeb.set( 2021, 02, 12, 11, 00 );
+        mCalendarFin.set( 2021, 02, 12, 11, 00 );
         Date dateDebMeeting = new Date( mCalendarDeb.getTimeInMillis() );
         Date dateFinMeeting = new Date( mCalendarFin.getTimeInMillis() );
         Meeting aMeeting = new Meeting( System.currentTimeMillis(),
@@ -69,28 +68,26 @@ public class MaReuUnitTest {
                 Arrays.asList( 3, 4, 6 ) );
 
         maReuApiService.addMeeting(aMeeting );
-        assertTrue( lMeetings.contains( aMeeting ) );
+        lMeetings = maReuApiService.getMeetings();
 
-        int finSize = lMeetings.size();
-        int diffSize = finSize - debSize;
-        assertEquals( 1, diffSize );
+        assertTrue( lMeetings.contains( aMeeting ) );
+        assertEquals( debSize +1, lMeetings.size() );
 
     }
     /**
      * Test thats the add meeting function creates a new meeting to the list with a empty list
      */
     @Test
-    public void removeListWithSuccess() {
+    public void removeMeetingWithSuccess() {
         List<Meeting> lMeetings =  maReuApiService.getMeetings();
         int debSize = lMeetings.size();
 
         Meeting meetingToDelete = lMeetings.get(0);
         maReuApiService.deleteMeeting(meetingToDelete);
+        lMeetings = maReuApiService.getMeetings();
 
         assertFalse( lMeetings.contains( meetingToDelete ) );
-        int finSize = lMeetings.size();
-        int diffSize = debSize - finSize;
-        assertEquals( 1, diffSize );
+        assertEquals( debSize-1, lMeetings.size() );
 
     }
 
@@ -98,12 +95,11 @@ public class MaReuUnitTest {
      * Test  the FilterMeeting by Room  with a initlist with 7 items
      */
     @Test
-    public void FilterbyRoom() {
-        List<Meeting> lMeetings = maReuApiService.getMeetings();
+    public void filterByRoom() {
         List<Integer> lRoomSelectedId = Arrays.asList( 1, 9 );
-        List<Meeting> lMeetingFiltered = new ArrayList<>();
+        List<Meeting> lMeetingFiltered;
 
-        lMeetingFiltered = maReuApiService.lMeetingsFilteredId( lRoomSelectedId );
+        lMeetingFiltered = maReuApiService.meetingsByRoomIds( lRoomSelectedId );
 
         int nbMeetingFiltered = lMeetingFiltered.size();
         assertEquals( 2, nbMeetingFiltered );
@@ -113,14 +109,9 @@ public class MaReuUnitTest {
      * Test  the FilterMeeting by Date with a initlist with 7 items
      */
     @Test
-    public void FilterByDate() {
-        List<Meeting> lMeetings =  maReuApiService.getMeetings();
-
-        Calendar mCalendarPicker = Calendar.getInstance();
-        mCalendarPicker.set( 2022, 06, 20, 10, 00 );
-        List<Meeting> lMeetingsFiltered = maReuApiService.filterMeetingsByDate( 2022, 06, 20 );
-        int nbMeetingSelected = lMeetingsFiltered.size();
-        assertEquals( 0, nbMeetingSelected );
+    public void filterByDate() {
+        List<Meeting> lMeetingsFiltered = maReuApiService.filterMeetingsByDate( 2022, 05, 13 );
+        assertEquals( 1, lMeetingsFiltered.size() );
     }
 
     /**
@@ -128,7 +119,6 @@ public class MaReuUnitTest {
      */
     @Test
     public void checkRoomAvailability() {
-        List<Meeting> lMeetings =  maReuApiService.getMeetings();
         int idRoom = 1;
         Calendar mCalendarDeb = Calendar.getInstance();
         Calendar mCalendarFin = Calendar.getInstance();
@@ -139,14 +129,15 @@ public class MaReuUnitTest {
         boolean available = maReuApiService.checkRoomAvailability( idRoom, mStartDate, mEndDate );
         assertEquals( true, available );
 
+
         mCalendarDeb = Calendar.getInstance();
         mCalendarFin = Calendar.getInstance();
-        mCalendarDeb.set( 2022, 06, 01, 07, 30 );
-        mCalendarFin.set( 2022, 06, 01, 10, 30 );
+        mCalendarDeb.set( 2022, 05, 12, 10, 00 );
+        mCalendarFin.set( 2022, 05, 12, 11, 00 );
         mStartDate = new Date( mCalendarDeb.getTimeInMillis() );
         mEndDate = new Date( mCalendarFin.getTimeInMillis() );
         available = maReuApiService.checkRoomAvailability( idRoom, mStartDate, mEndDate );
-        assertEquals( true, available );
+        assertEquals( false, available );
     }
 
 

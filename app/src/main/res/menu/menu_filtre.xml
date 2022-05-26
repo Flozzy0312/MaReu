@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="fr.flozzy.mareu.view.ListActivity">
     <item
-        android:id="@+id/menu_overflow_button_create_meeting"
+        android:id="@+id/menu_overflow_toolbar"
         android:icon="@drawable/ic_baseline_filter_alt_24"
         app:showAsAction="ifRoom"
         tools:ignore="MenuTitle">

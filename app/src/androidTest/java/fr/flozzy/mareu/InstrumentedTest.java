@@ -62,8 +62,7 @@ public class InstrumentedTest {
     }
 
     @Test
-    public void MaReuList_shouldNotBeEmpty() {
-        // Faites d'abord défiler jusqu'à la position voulu puis cliquer dessus.
+    public void listReu_shouldNotBeEmpty() {
         onView(withId(R.id.list_recycler_view)).check(matches(hasMinimumChildCount(1)));
     }
 
@@ -95,7 +94,7 @@ public class InstrumentedTest {
         onView(withId(R.id.autocomplete_text_add_meeting_participant))
                 .perform(typeText("j"));
         onData(anything()).atPosition(1).perform(click());
-        onView(withId(R.id.menu_overflow_button_create_meeting))
+        onView(withId(R.id.menu_overflow_toolbar))
                 .perform(click());
         onView(withText(R.string.menu_creation_meeting))
                 .perform(click());
@@ -105,7 +104,7 @@ public class InstrumentedTest {
     public void addMeetingWithMissingSubjectThrowsToast() {
         onView(withId(R.id.button_add_meeting))
                 .perform(click());
-        onView(withId(R.id.menu_overflow_button_create_meeting))
+        onView(withId(R.id.menu_overflow_toolbar))
                 .perform(doubleClick());
         onView(withText(R.string.toast_subject_empty)).inRoot(withDecorView(not(is(mActivityRule.getActivity().getWindow().getDecorView())))).check(matches(isDisplayed()));
     }
@@ -120,35 +119,34 @@ public class InstrumentedTest {
 
     @Test
     public void filterMeetingByDate() {
-        onView(withId(R.id.menu_overflow_button_create_meeting))
+        onView(withId(R.id.menu_overflow_toolbar))
                 .perform(click());
         onView(withText(R.string.menu_filter_date))
                 .perform(click());
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(2022, 3, 13));
         onView(withText(R.string.filter_ok_text)).perform(click());
         onView(withId(R.id.list_recycler_view)).check(withItemCount(0));
-        onView(withId(R.id.menu_overflow_button_create_meeting))
+        onView(withId(R.id.menu_overflow_toolbar))
                 .perform(click());
         onView(withText(R.string.menu_filter_date))
                 .perform(click());
 
-        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(2022, 5, 6));
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(2022, 6, 20));
         onView(withText(R.string.filter_ok_text)).perform(click());
-        onView(withId(R.id.list_recycler_view)).check(withItemCount(0));
+        onView(withId(R.id.list_recycler_view)).check(withItemCount(1));
     }
 
     @Test
     public void filterMeetingByRoom() {
         onView(withId(R.id.list_recycler_view)).check(withItemCount(INITIAL_LIST_SIZE));
-        onView(withId(R.id.menu_overflow_button_create_meeting))
+        onView(withId(R.id.menu_overflow_toolbar))
                 .perform(click());
         onView(withText(R.string.menu_filter_room))
                 .perform(click());
-        String room = "Salle 1";
-        onView(withText(room)).perform(click());
+        onView(withText("Salle 1")).perform(click());
         onView(withText(R.string.filter_ok_text)).perform(click());
         onView(withId(R.id.list_recycler_view)).check(withItemCount(1));
-        onView(withId(R.id.menu_overflow_button_create_meeting))
+        onView(withId(R.id.menu_overflow_toolbar))
                 .perform(click());
         onView(withText(R.string.menu_filter_room))
                 .perform(click());

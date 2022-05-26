@@ -176,7 +176,7 @@ public class MainActivity<lMeetings> extends AppCompatActivity {
                     toastRoomNotSelected.show();
                 } else {
                     List<Integer> lRoomSelectedId=filterRoom(checkedRooms);
-                    List<Meeting> lMeetingsFiltered=maReuApiService.lMeetingsFilteredId(lRoomSelectedId);
+                    List<Meeting> lMeetingsFiltered=maReuApiService.meetingsByRoomIds(lRoomSelectedId);
                     dialog.dismiss();
                     adapter.setData(lMeetingsFiltered);
                     FILTER_ROOM = checkedRooms;

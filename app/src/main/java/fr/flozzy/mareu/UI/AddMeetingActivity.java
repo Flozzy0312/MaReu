@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -25,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 import fr.flozzy.mareu.DI.DI;
 import fr.flozzy.mareu.MODEL.Meeting;
@@ -72,7 +72,12 @@ public class AddMeetingActivity extends AppCompatActivity {
     private void init() {
         Toolbar toolbar = findViewById( R.id.toolbar_add_meeting );
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        // calling the action bar
+        ActionBar actionBar = getSupportActionBar();
+
+        // showing the back button in action bar
+        assert actionBar != null;
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         maReuApiService = DI.getMaReuApiService();
 
@@ -289,9 +294,13 @@ public class AddMeetingActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_button_create_meeting) {
-            createMeeting();
-            return true;
+       switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            case R.id.menu_button_create_meeting:
+                createMeeting();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

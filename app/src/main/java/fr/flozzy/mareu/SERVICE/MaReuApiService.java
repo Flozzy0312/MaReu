@@ -28,7 +28,7 @@ public interface MaReuApiService {
 
     boolean checkRoomAvailability(int roomId, Date startDate, Date endDate) ;
 
-    List<Meeting> lMeetingsFilteredId(List<Integer> lRoomSelectedId);
+    List<Meeting> meetingsByRoomIds(List<Integer> lRoomSelectedId);
 
     List<Meeting> filterMeetingsByDate(int year, int month, int day);
 

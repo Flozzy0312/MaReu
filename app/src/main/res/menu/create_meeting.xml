@@ -4,7 +4,7 @@
     tools:context="fr.flozzy.mareu.UI.AddMeetingActivity">
 
     <item
-        android:id="@+id/menu_overflow_button_create_meeting"
+        android:id="@+id/menu_overflow_toolbar"
         android:icon="@drawable/ic_baseline_save_24"
         android:title="@string/menu_creation_meeting"
         app:showAsAction="always">

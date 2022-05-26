@@ -5,9 +5,14 @@
       <map>
         <entry key="../../../layout/custom_preview.xml" value="0.22135416666666666" />
         <entry key="../Library/Android/sdk/platforms/android-32/data/res/layout-television/user_switching_dialog.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1315" />
+        <entry key="app/src/main/res/drawable/ic_baseline_access_time_24.xml" value="0.1315" />
         <entry key="app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.118" />
+        <entry key="app/src/main/res/drawable/ic_baseline_date_range_24.xml" value="0.1315" />
         <entry key="app/src/main/res/drawable/ic_baseline_delete_24.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_baseline_looks_4_24.xml" value="0.118" />
+        <entry key="app/src/main/res/drawable/ic_baseline_save_24.xml" value="0.1315" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1315" />
         <entry key="app/src/main/res/drawable/sallecinq.xml" value="0.2515" />
         <entry key="app/src/main/res/drawable/salledeux.xml" value="0.117" />
         <entry key="app/src/main/res/drawable/salledix.xml" value="0.117" />
@@ -22,7 +27,7 @@
         <entry key="app/src/main/res/layout/activity_add_meeting.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.234375" />
         <entry key="app/src/main/res/layout/create_meeting.xml" value="0.234375" />
-        <entry key="app/src/main/res/layout/error_toast.xml" value="1.2142857142857142" />
+        <entry key="app/src/main/res/layout/error_toast.xml" value="0.125" />
         <entry key="app/src/main/res/layout/fragment_item_list.xml" value="0.25" />
         <entry key="app/src/main/res/layout/menu_filtre.xml" value="0.234375" />
         <entry key="app/src/main/res/menu/create_meeting.xml" value="0.1828125" />

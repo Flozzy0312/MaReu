@@ -45,7 +45,7 @@ public class DummyMaReuApiService implements MaReuApiService {
         lMeetings.add(aMeeting);
     }
 
-    public List<Meeting> lMeetingsFilteredId(List<Integer> lRoomSelectedId){
+    public List<Meeting> meetingsByRoomIds(List<Integer> lRoomSelectedId){
         long nbMeetings=lMeetings.size();
         List<Meeting> lMeetingsFiltered=new ArrayList<>();
         long nbRoomSelected=lRoomSelectedId.size();
